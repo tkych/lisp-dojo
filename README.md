@@ -1,4 +1,4 @@
-Last modified: 2013-10-12 23:11:51 tkych
+Last modified: 2013-10-12 23:23:50 tkych
 
 Version: 0.0.20 (alpha)
 
@@ -9,8 +9,9 @@ Lisp-Dojo: Lisp Training Hall
 > the most effective learning requires a well-defined task with
 > an appropriate difficulty level for the particular individual,
 > informative feedback, and opportunities for repetition and corrections of errors.
->            --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
->            quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
+
+> --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
+> quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
 
 
 > In most fields the appearance of ease seems to come with practice.
@@ -20,7 +21,8 @@ Lisp-Dojo: Lisp Training Hall
 > When people talk about being in "the zone," I think what they mean is
 > that the spinal cord has the situation under control. Your spinal cord
 > is less hesitant, and it frees conscious thought for the hard problems.
->                               --- [Paul Graham, Taste for Makers][pg]
+
+> --- [Paul Graham, Taste for Makers][pg]
 
 
 Introduction
@@ -53,7 +55,6 @@ Usage
 -----
 
 `$` is a command prompt.
-`#` is a symbol of starting comment line.
 
 
     $ ./lisp-dojo --help
@@ -82,7 +83,7 @@ Usage
     Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
 
 
- ~~~~ edit answers/000-hello.lisp ~~~~
+ ~~~~ edit solutions/000-hello.lisp ~~~~
  e.g. `(defun hello () 'Wellcome-to-the-Lisp-Dojo!)`
 
 
@@ -114,9 +115,7 @@ Note
 ----
 
  - Documemtations is not compleate.
-   If you have more educational and fun documemtation, please pull-request or issue.
- - The sample-answer is a just sample answer of many answers.
-   If you have more educational or elegant sample answer, please pull-request or issue.
+ - solutions are just one solution of many solutions.
  - The check is not perfect. e.g. the function defined by the following anwser is also pass the check.
 
 ```
@@ -127,7 +126,7 @@ Note
 
  - If no return, probably infinit-loop occurs.
  - using REPL.
- - To initialize: remove all files in lisp-dojo/answers, change 0 in .dojo
+ - To initialize: remove all files in lisp-dojo/solutions, change 0 in .dojo
 
 
 
