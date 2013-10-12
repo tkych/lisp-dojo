@@ -9,8 +9,9 @@ Lisp-Dojo: Lisp Training Hall
 > the most effective learning requires a well-defined task with
 > an appropriate difficulty level for the particular individual,
 > informative feedback, and opportunities for repetition and corrections of errors.
->            --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
->            quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
+
+> --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
+> quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
 
 
 > In most fields the appearance of ease seems to come with practice.
@@ -20,7 +21,8 @@ Lisp-Dojo: Lisp Training Hall
 > When people talk about being in "the zone," I think what they mean is
 > that the spinal cord has the situation under control. Your spinal cord
 > is less hesitant, and it frees conscious thought for the hard problems.
->                               --- [Paul Graham, Taste for Makers][pg]
+
+> --- [Paul Graham, Taste for Makers][pg]
 
 
 Introduction
@@ -53,7 +55,6 @@ Usage
 -----
 
 `$` is a command prompt.
-`#` is a symbol of starting comment line.
 
 
     $ ./lisp-dojo --help
@@ -82,7 +83,7 @@ Usage
     Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
 
 
- ~~~~ edit answers/000-hello.lisp ~~~~
+ ~~~~ edit solutions/000-hello.lisp ~~~~
  e.g. `(defun hello () 'Wellcome-to-the-Lisp-Dojo!)`
 
 
