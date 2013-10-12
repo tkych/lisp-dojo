@@ -1,0 +1,301 @@
+#!/bin/bash -eu
+
+# Last modified: 2013-10-12 23:05:46 tkych
+
+# lisp-dojo/lisp-dojo
+
+# Copyright (c) 2013 Takaya OCHIAI <tkych.repl@gmail.com>
+# This file is released under the MIT License.
+# For more details, see lisp-dojo/LICENSE
+
+
+#=====================================================================
+# Lisp-Dojo Interface
+#=====================================================================
+
+#---------------------------------------------------------------------
+# Utils
+#---------------------------------------------------------------------
+
+readonly RED=1
+readonly GREEN=2
+readonly CYAN=6
+readonly YELLOW=3
+readonly MAGENTA=5
+
+with_color() {
+  tput setaf "$1"
+  shift
+  "$@"
+  tput sgr0
+}
+
+readonly DBG='off'
+
+dbg() {
+  if [[ "${DBG}" = 'on' ]]; then
+    with_color ${RED} echo ">>> $*"
+  fi
+}
+
+
+#---------------------------------------------------------------------
+# Variables
+#---------------------------------------------------------------------
+
+readonly VERSION='0.0.01'
+readonly DEV_STATUS='alpha'
+readonly LICENSE='The MIT License   (lisp-dojo/lisp-dojo, lisp-dojo/core.lisp)
+          The Public Domain (all files in lisp-dojo/practices/)'
+readonly AUTHOR='Takaya OCHIAI'
+readonly AUTHOR_EMAIL='tkych.repl@gmail.com'
+readonly LISP_DOJO_URL='https://github.com/tkych/lisp-dojo'
+
+readonly NUM_TOTAL_PRACTICES=20
+readonly DOJO_CORE='core.lisp'
+
+# TODO: Add other cl implementations (cmucl gcl ecl alisp lisp-works, etc.)
+readonly SUPPORTED_LISPS='ccl sbcl clisp'
+
+# default option is `problem', it shows the problem for the practice.
+opt='problem'
+
+# 0 <= practice id <= $NUM_TOTAL_PRACTICES
+id=''
+
+# If you want always to use the specific CL Implementation contained
+# in $SUPPORTED_LISPS, then you may set it to the following variable.
+lisp=''
+
+
+#---------------------------------------------------------------------
+# Print Functions
+#---------------------------------------------------------------------
+
+usage() {
+  echo ""
+  echo -n "Usage: "
+  with_color ${CYAN} echo -n "$0"
+  echo -n " ["
+  with_color ${MAGENTA} echo -n "<option>"
+  echo -n "] ["
+  with_color ${YELLOW} echo -n "<command>"
+  echo -n "] "
+  with_color ${RED} echo -n "<id>"
+  echo -n " [{-l | --lisp} "
+  with_color ${GREEN} echo -n "<lisp>"
+  echo "] "    
+  echo ""
+  echo -n " "
+  with_color ${MAGENTA} echo -n "<option>"
+  echo " is a one of:"
+  echo "   -h, --help       Print this message and exit."
+  echo "   -v, --version    Print version and exit."
+  echo "   -c, --copyright  Print copyright and exit."
+  echo ""
+  echo -n " "
+  with_color ${YELLOW} echo -n "<command>"
+  echo " is a one of:"
+  echo "    problem         Print problem (default)."
+  echo "    c, check        Check your solution in lisp-dojo/solutions/"
+  echo "    h, hint         Print hint for the problem."
+  echo "    solutions       Print solutions for the problem."
+  echo "    r, reference    Print reference for the problem."
+  echo "    new             Generate a new solution file in lisp-dojo/solutions/"
+  echo "                    (if exists, then superseded)."
+  echo "    p, progress     Print progress and exit."
+  echo ""
+  echo -n " "
+  with_color ${RED} echo -n "<id>"
+  echo " is a integer (0 <= i <= ${NUM_TOTAL_PRACTICES}) that identifies the problem."
+  echo ""
+  echo -n " "
+  with_color ${GREEN} echo -n "<lisp>"
+  echo " is a one of common lisp implementations that lisp-dojo run on. "
+  echo -n " Formally, "
+  with_color ${GREEN} echo -n "<lisp>"
+  echo " ::= { $(echo -n ${SUPPORTED_LISPS} | sed s/\ /\ \|\ /g) }"
+  echo ""
+  echo "Lisp-Dojo web page: <${LISP_DOJO_URL}>"
+}
+
+version() {
+  echo "Lisp-Dojo ${VERSION} (${DEV_STATUS}) <${LISP_DOJO_URL}>"
+}
+
+title() {
+  cat <<EOF
+
+                               __     __   __             ________
+  _                            \_\   _\ \_/ /_           ||______||
+ | |       _    ____   _____  _____ |_________|    |\    ||______||
+ | |      |_|  / __ \ |  __ \ \_  _\   _/ /_      _||_  ____________
+ | |       _   \ \ \_|| |  \ |  \ \   ||___||    |_  _||__  ________|
+ | |      | | _ \ \   | |__/ |   | |  ||___||      ||    / /_________
+ | |_____ | || \_\ \  |  ___/   / / _ ||___||  __ _||/| / / // //  //
+ |_______||_| \____/  | |      / /_/ \||___||_/ / \__/ /_/ // //  //
+                      |_|      \___/-\_________/          // //__//
+                                                               \_/
+
+EOF
+}
+
+copyright() {
+  with_color ${CYAN} title
+  echo "                                           --- The Lisp Training Hall"
+  echo ""
+  echo " Copyright (c) 2013 ${AUTHOR}"
+  echo " License: ${LICENSE}"
+  echo " Author: ${AUTHOR} <${AUTHOR_EMAIL}>"
+  echo ""
+}
+
+error_message() {
+  with_color ${RED} echo "$@" >&2
+  echo "For more details, please run \`${0} --help'."
+}
+
+
+#---------------------------------------------------------------------
+# Main: parse command line and call lisp
+#---------------------------------------------------------------------
+
+dbg "arg0: $0"
+dbg "argv: $@"
+dbg "argc: $#"
+
+
+#---------------------------------------
+# Check no operand
+#---------------------------------------
+
+if [[ "$#" = 0 ]]; then
+  usage
+  exit 0
+fi
+
+
+#---------------------------------------
+# Parse Options
+#---------------------------------------
+
+if [[ -n "$(echo -n ${1} | grep '^-')" ]]; then
+  case "$1" in
+    -h | --help )       usage
+                        exit 0
+                        ;;
+    -v | --version )    version
+                        exit 0
+                        ;;
+    -c | --copyright )  copyright
+                        exit 0
+                        ;;
+  esac
+fi
+
+
+#---------------------------------------
+# Parse Commands
+#---------------------------------------
+
+case "$1" in
+  problem )        opt='problem';  shift
+                   ;;
+  c | check )      opt='check';     shift
+                   ;;
+  h | hint )       opt='hint';      shift
+                   ;;
+  r | reference )  opt='reference'; shift
+                   ;;
+  solutions )      opt='solutions'; shift
+                   ;;
+  new )            opt='new';       shift
+                   ;;
+  p | progress )   opt='progress';
+                   ;;
+esac
+
+
+#---------------------------------------
+# Parse ID
+#---------------------------------------
+
+if [[ "${opt}" = 'progress' ]]; then       # `score' need not get id
+  id=''
+elif [[ "$#" = 0 ]]; then
+  error_message 'There is no id.'
+  exit 1
+elif [[ -n "$(echo -n ${1} | grep -E '^0*[0-9]{1,3}$')" ]] &&
+     [[ 0 -le "$1" ]] && [[ "$1" -le ${NUM_TOTAL_PRACTICES} ]]; then
+  id=$1
+else
+  error_message "\`${1}' is an invalid id."
+  exit 1
+fi
+
+
+#---------------------------------------
+# Parse & Find CL Implementation 
+#---------------------------------------
+
+shift
+
+if [[ "$#" = 2 ]]; then
+  case "$1" in
+    -l | --lisp )
+      if [[ -n "$(command -v ${2})" ]]; then
+        lisp=${2}
+      else
+        error_message "Lisp-Dojo could not find \`${2}'."
+      fi
+      ;;
+    * )
+      error_message "\`${1}' is neither \`-l' nor \`--lisp'."
+      exit 1
+      ;;
+  esac
+fi
+
+
+if [[ -z "${lisp}" ]]; then
+  for cl in ${SUPPORTED_LISPS};
+  do
+    if [[ -n "$(command -v ${cl})" ]]; then
+      lisp=${cl}
+      break
+    fi
+  done
+fi
+
+
+#---------------------------------------
+# Enter the Lisp-Dojo
+#---------------------------------------
+
+case "${lisp}" in
+  ccl )   ccl --load ${DOJO_CORE} -- ${opt} ${id} # (ccl:quit) is in ${DOJO_CORE}
+          ;;
+  sbcl )  sbcl --script ${DOJO_CORE} ${opt} ${id}
+          ;;
+  clisp ) clisp ${DOJO_CORE} ${opt} ${id}
+          ;;
+  # TODO:
+  # cmucl ) cmucl -load ${DOJO_CORE} ${opt} ${id}    # -eval '(quit)'
+  #         ;;
+  # alisp ) alisp -#! ${DOJO_CORE} ${opt} ${id}
+  #         ;;
+  # ecl )   ecl -shell ${DOJO_CORE} ${opt} ${id}
+  #         ;;
+  * )     error_message 'Lisp-Dojo could not find any suppored CL implemantation.'
+          exit 1
+          ;;
+esac
+
+
+##====================================================================
+
+dbg "argv: $@"
+dbg "argc: $#"
+dbg "command: ${opt}"
+dbg "id: ${id}"
+dbg "lisp: ${lisp}"
