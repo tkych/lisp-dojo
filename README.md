@@ -1,4 +1,4 @@
-Last modified: 2013-10-12 22:51:18 tkych
+Last modified: 2013-10-12 23:11:51 tkych
 
 Version: 0.0.20 (alpha)
 
@@ -9,8 +9,8 @@ Lisp-Dojo: Lisp Training Hall
 > the most effective learning requires a well-defined task with
 > an appropriate difficulty level for the particular individual,
 > informative feedback, and opportunities for repetition and corrections of errors.
->>>    --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
->>>      quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
+>            --- [Jean Lave, Cognition in Practice, p. 20-21](http://www.amazon.com/exec/obidos/ASIN/0521357349)
+>            quoted by [Peter Norvig, Teach Yourself Programming in Ten Years](http://www.norvig.com/21-days.html)
 
 
 > In most fields the appearance of ease seems to come with practice.
@@ -20,8 +20,11 @@ Lisp-Dojo: Lisp Training Hall
 > When people talk about being in "the zone," I think what they mean is
 > that the spinal cord has the situation under control. Your spinal cord
 > is less hesitant, and it frees conscious thought for the hard problems.
->>>>>>    --- [Paul Graham, Taste for Makers][pg]
+>                               --- [Paul Graham, Taste for Makers][pg]
 
+
+Introduction
+------------
 
 [Dojo (道場)][dojo] is a training hall to learning morality and martial arts (e.g. Karate, Judo, Ninja, etc.) in Japan.
 Lisp-Dojo is a training hall for the practice of Common Lisp (to make functions, data-stractures and macros).
@@ -70,13 +73,13 @@ Usage
        * (hello) => "Wellcome to the Lisp Dojo!"
 
 
-     New answer file generated: answers/000-hello.lisp
-     Write your answer in answers/000-hello.lisp
+     New answer file generated: solutions/000-hello.lisp
+     Write your answer in solutions/000-hello.lisp
 
 
     $ ./lisp-dojo check 0
     FAIL ... (hello) =>? "Wellcome to the Lisp Dojo!" ... => UNDEFINED-FUNCTION-CALL
-    Some Tests Failed --- Try again this practice in answers/000-hello.lisp
+    Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
 
 
  ~~~~ edit answers/000-hello.lisp ~~~~
@@ -85,13 +88,13 @@ Usage
 
     $ ./lisp-dojo check 0
     FAIL ... (hello) =>? "Wellcome to the Lisp Dojo!" ... => WELLCOME-TO-THE-LISP-DOJO!
-    Some Tests Failed --- Try again this practice in answers/000-hello.lisp
+    Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
 
     $ ./lisp-dojo hint 0
     No arguments, return string.
 
 
- ~~~~ edit answers/000-hello.lisp ~~~~
+ ~~~~ edit solutions/000-hello.lisp ~~~~
  e.g. `(defun hello () "Wellcome to the Lisp Dojo!")`
 
 
@@ -103,7 +106,7 @@ Usage
 ~~~~ print succsess message ~~~~
 
 
-    $ ./lisp-dojo sample-answers 0
+    $ ./lisp-dojo solutions 0
      (defun hello () "Wellcome to the Lisp Dojo!")
 
 
