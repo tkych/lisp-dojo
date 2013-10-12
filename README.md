@@ -1,4 +1,4 @@
-Last modified: 2013-10-12 23:23:50 tkych
+Last modified: 2013-10-13 00:25:18 tkych
 
 Version: 0.0.20 (alpha)
 
@@ -39,7 +39,7 @@ If you want first to learn/review Common Lisp basics, the following excellent re
  - [Practical Common Lisp][pcl] by Peter Seibel
  - [Lisp-Koans][lisp-koans] by Google Inc.
 
-<!-- For more links about Common Lisp for newbie are found in [here][wellcome]. -->
+For more links about Common Lisp for newbie are found in [here][wellcome].
 
 
 [pg]: http://www.paulgraham.com/taste.html
@@ -48,7 +48,7 @@ If you want first to learn/review Common Lisp basics, the following excellent re
 [gentle]: http://www-cgi.cs.cmu.edu/afs/cs.cmu.edu/user/dst/www/LispBook/index.html
 [pcl]: http://www.gigamonkeys.com/book/
 [lisp-koans]: https://github.com/google/lisp-koans
-<!-- [wellcome]: https://github.com/tkych/lisp-dojo/blob/master/wellcome-to-cl.md -->
+[wellcome]: https://github.com/tkych/lisp-dojo/blob/master/wellcome-to-cl.md
 
 
 Usage
