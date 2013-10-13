@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 22:44:57 tkych
+;;;; Last modified: 2013-10-13 21:58:54 tkych
 
 ;; lisp-dojo/core.lisp
 
@@ -9,6 +9,7 @@
 ;; TODO:
 ;; -----
 ;;  * once-only print promotion message
+;;  * solutions -> your-solutions
 
 
 ;;====================================================================
@@ -104,7 +105,10 @@
 ;; Special Variables
 ;;--------------------------------------------------------------------
 
-(defparameter *total-num-practices* 20)
+(defparameter *practices-directory* "practices")
+(defparameter *solutions-directory* "your-solutions")
+
+(defparameter *total-num-practices* 27)
 (defparameter *promotion-rate* 10)
 
 (defparameter *belts*
@@ -287,9 +291,6 @@
 ;;--------------------------------------------------------------------
 ;; File I/O
 ;;--------------------------------------------------------------------
-
-(defparameter *practices-directory* "practices")
-(defparameter *solutions-directory* "solutions")
 
 (defun make-practice-filespec (id)
   (format nil "~A/~3,'0D.lisp" *practices-directory* id))
@@ -564,15 +565,15 @@
                   (let ((next-name (get-name *current-practice*)))
                     (print-success-message next-id next-name)
                     ;; Make next solution file if does not exist.
-                    (unless (probe-file (make-solution-filespec next-id next-name))
+                    (unless (probe-file
+                             (make-solution-filespec next-id next-name))
                       (make-solution-file next-id))))))
             ;; !! FIXME: once-only print promotion message
             ;; Print promotion message if it is solved first time.
             (when (promotep)
               (print-promotion))
-            ;; (when (< *total-num-practices* (get-num-overcame))
-            ;;   (print-completion))
-            ))
+            (when (< *total-num-practices* (get-num-overcame))
+              (print-completion))))
       (force-output))))
 
 
@@ -673,9 +674,7 @@
 ;; (main (get-command-line-arguments))
 
 (handler-case
-    (progn
-      (main (get-command-line-arguments))
-      (read-dot-dojo))
+    (main (get-command-line-arguments))
   (error (c) (format t "Unexpected error [~S]" (type-of c))))
 
 

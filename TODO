@@ -1,0 +1,17 @@
+Last modified: 2013-10-13 22:04:48 tkych
+
+TODO
+====
+
+ * Improve doc (problem, hint, solutions, reference):
+   educational, fun and little humor.
+
+ * Improve test.
+
+ * Add: gcl, cmu, ecl, alisp, lisp-works??, etc.
+   1. modify get-command-line-arguments in core.lisp
+   2. modify lisp-dojo shell script
+      * add: into SUPPORTED_LISPS variable
+      * modify: Enter the Lisp-Dojo (last part of the script)
+ 
+ * Tips for using "CL-REPL"

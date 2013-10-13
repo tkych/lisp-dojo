@@ -1,6 +1,6 @@
 #!/bin/bash -eu
 
-# Last modified: 2013-10-12 23:05:46 tkych
+# Last modified: 2013-10-13 21:59:19 tkych
 
 # lisp-dojo/lisp-dojo
 
@@ -43,7 +43,7 @@ dbg() {
 # Variables
 #---------------------------------------------------------------------
 
-readonly VERSION='0.0.01'
+readonly VERSION='0.0.27'
 readonly DEV_STATUS='alpha'
 readonly LICENSE='The MIT License   (lisp-dojo/lisp-dojo, lisp-dojo/core.lisp)
           The Public Domain (all files in lisp-dojo/practices/)'
@@ -51,7 +51,7 @@ readonly AUTHOR='Takaya OCHIAI'
 readonly AUTHOR_EMAIL='tkych.repl@gmail.com'
 readonly LISP_DOJO_URL='https://github.com/tkych/lisp-dojo'
 
-readonly NUM_TOTAL_PRACTICES=20
+readonly NUM_TOTAL_PRACTICES=27
 readonly DOJO_CORE='core.lisp'
 
 # TODO: Add other cl implementations (cmucl gcl ecl alisp lisp-works, etc.)

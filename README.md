@@ -1,6 +1,6 @@
-Last modified: 2013-10-13 00:25:18 tkych
+Last modified: 2013-10-13 21:59:26 tkych
 
-Version: 0.0.20 (alpha)
+Version: 0.0.27 (alpha)
 
 
 Lisp-Dojo: Lisp Training Hall
