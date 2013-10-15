@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 22:12:33 tkych
+;;;; Last modified: 2013-10-15 18:55:51 tkych
 
 (define-practice
   :id       014
@@ -12,9 +12,10 @@
 
  Examples:
 
-   (random-nth '())          => NIL
-   (random-nth '(a b c d))   => (D)
-   (random-nth '(a b (c d))) => (C D)
+   (random-nth '(0 1 2 3)) => 0 (or 1 or 2 or 3, randomly)
+   (random-nth '(42))      => 42
+   (random-nth '(42 42))   => 42
+   (random-nth '())        => ERROR!
 "
   :hint
   nil
@@ -38,3 +39,4 @@
            (loop repeat 10
                  collect (%random-nth '(0 1 2 3 4 5))))))
   )
+

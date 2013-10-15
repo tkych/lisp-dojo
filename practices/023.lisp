@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:34:02 tkych
+;;;; Last modified: 2013-10-15 19:00:32 tkych
 
 (define-practice
   :id       023
@@ -8,7 +8,6 @@
  MY-MEMBER item list => generalized-boolean
 
    Make function MY-MEMBER.
-   Don't use buit-in function MEMBER.
 
  Examples:
 

@@ -1,6 +1,6 @@
-Last modified: 2013-10-13 21:59:26 tkych
+Last modified: 2013-10-15 19:02:54 tkych
 
-Version: 0.0.27 (alpha)
+Version: 0.0.34 (alpha)
 
 
 Lisp-Dojo: Lisp Training Hall
@@ -68,34 +68,37 @@ Usage
      0. HELLO
      ---------
 
-     Make a function HELLO which returns "Wellcome to the Lisp Dojo!".
+     HELLO => greeting-string
+
+       Make function HELLO.
+       It takes no arguments, and returns "Wellcome to the Lisp Dojo!".
 
      Example:
-       * (hello) => "Wellcome to the Lisp Dojo!"
 
+       (hello) => "Wellcome to the Lisp Dojo!"
 
-     New answer file generated: solutions/000-hello.lisp
-     Write your answer in solutions/000-hello.lisp
+     New answer file generated: your-solutions/000-hello.lisp
+     Write your solution in your-solutions/000-hello.lisp
 
 
     $ ./lisp-dojo check 0
     FAIL ... (hello) =>? "Wellcome to the Lisp Dojo!" ... => UNDEFINED-FUNCTION-CALL
-    Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
+    Some Tests Failed --- Try again this practice in your-solutions/000-hello.lisp
 
 
- ~~~~ edit solutions/000-hello.lisp ~~~~
+ ~~~~ edit your-solutions/000-hello.lisp ~~~~
  e.g. `(defun hello () 'Wellcome-to-the-Lisp-Dojo!)`
 
 
     $ ./lisp-dojo check 0
     FAIL ... (hello) =>? "Wellcome to the Lisp Dojo!" ... => WELLCOME-TO-THE-LISP-DOJO!
-    Some Tests Failed --- Try again this practice in solutions/000-hello.lisp
+    Some Tests Failed --- Try again this practice in your-solutions/000-hello.lisp
 
     $ ./lisp-dojo hint 0
     No arguments, return string.
 
 
- ~~~~ edit solutions/000-hello.lisp ~~~~
+ ~~~~ edit your-solutions/000-hello.lisp ~~~~
  e.g. `(defun hello () "Wellcome to the Lisp Dojo!")`
 
 
@@ -115,7 +118,7 @@ Note
 ----
 
  - Documemtations is not compleate.
- - solutions are just one solution of many solutions.
+ - The solutions are just some solutions of many solutions.
  - The check is not perfect. e.g. the function defined by the following anwser is also pass the check.
 
 ```
@@ -126,8 +129,7 @@ Note
 
  - If no return, probably infinit-loop occurs.
  - using REPL.
- - To initialize: remove all files in lisp-dojo/solutions, change 0 in .dojo
-
+ - Initialization: remove all files in lisp-dojo/your-solutions, change the number in .dojo to 0.
 
 
 Reference

@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 17:42:54 tkych
+;;;; Last modified: 2013-10-15 18:59:02 tkych
 
 (define-practice
   :id       016
@@ -19,7 +19,7 @@
    (remove-every-nth 7 '(0 1 2 3 4 5 6)) => (0 1 2 3 4 5 6)
   
    (remove-every-nth  3 '(0 1 2)) => (0 1 2)
-   (remove-every-nth  3 '())      => NIL
+   (remove-every-nth  3 '())      => ()
   
    (remove-every-nth -1 '())      => ERROR!
    (remove-every-nth -1 '(0 1 2)) => ERROR!
@@ -63,7 +63,7 @@
    (=>? (remove-every-nth 7 '(0 1 2 3 4 5 6)) (0 1 2 3 4 5 6))
    
    (=>? (remove-every-nth  3 '(0 1 2)) (0 1 2))
-   (=>? (remove-every-nth  3 '())      NIL)
+   (=>? (remove-every-nth  3 '())      ())
    
    (=>error? (remove-every-nth -1 '()))
    (=>error? (remove-every-nth -1 '(0 1 2)))

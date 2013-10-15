@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:34:31 tkych
+;;;; Last modified: 2013-10-15 19:01:26 tkych
 
 (define-practice
   :id       025
@@ -13,7 +13,7 @@
  Examples:
 
    (flatten 'a)       => (A)
-   (flatten '())      => NIL
+   (flatten '())      => ()
    (flatten '(a b c)) => (A B C)
    (flatten '((a) ((b)) (((c)))))       => (A B C)
    (flatten '((a ((b))) (((c d (e)))))) => (A B C D E)
@@ -33,7 +33,7 @@
   nil
   :test
   ((=>? (flatten 'a)       (A))
-   (=>? (flatten '())      NIL)
+   (=>? (flatten '())      ())
    (=>? (flatten '(a b c)) (A B C))
    (=>? (flatten '((a) ((b)) (((c)))))
         (A B C))

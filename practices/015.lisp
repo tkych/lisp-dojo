@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 22:19:54 tkych
+;;;; Last modified: 2013-10-15 18:58:47 tkych
 
 (define-practice
   :id       015
@@ -12,12 +12,12 @@
 
  Examples:
 
-   (remove-nth -1 '())      => NIL
+   (remove-nth -1 '())      => ()
    (remove-nth -1 '(0 1 2)) => (0 1 2)
-   (remove-nth  0 '())      => NIL
+   (remove-nth  0 '())      => ()
    (remove-nth  1 '(0 1 2)) => (0 2)
    (remove-nth  3 '(0 1 2)) => (0 1 2)
-   (remove-nth  3 '())      => NIL
+   (remove-nth  3 '())      => ()
 "
   :hint
   nil
@@ -42,10 +42,10 @@
   :test-env
   nil
   :test
-  ((=>? (remove-nth -1 '())      NIL)
+  ((=>? (remove-nth -1 '())      ())
    (=>? (remove-nth -1 '(0 1 2)) (0 1 2))
-   (=>? (remove-nth  0 '())      NIL)
+   (=>? (remove-nth  0 '())      ())
    (=>? (remove-nth  1 '(0 1 2)) (0 2))
    (=>? (remove-nth  3 '(0 1 2)) (0 1 2))
-   (=>? (remove-nth  3 '())      NIL))
+   (=>? (remove-nth  3 '())      ()))
   )

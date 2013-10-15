@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:54:50 tkych
+;;;; Last modified: 2013-10-15 18:57:16 tkych
 
 (define-practice
   :id       009
@@ -12,11 +12,11 @@
 
  Examples:
 
-   (range 2 2)  => NIL
-   (range 7 2)  => NIL
+   (range 2 2)  => ()
+   (range 7 2)  => ()
    (range 0 3)  => (0 1 2)
    (range -5 5) => (-5 -4 -3 -2 -1 0 1 2 3 4)
-   (range 5 -5) => NIL
+   (range 5 -5) => ()
 "
   :hint "
  * The value of `end' is not contained in reslut-list."
@@ -41,11 +41,11 @@
   :test-env
   nil
   :test
-  ((=>? (range 2 2)     NIL)
-   (=>? (range 7 2)     NIL)
-   (=>? (range 5 -5)    NIL)
-   (=>? (range -5 -5)   NIL)
-   (=>? (range -5 -15)  NIL)
+  ((=>? (range 2 2)     ())
+   (=>? (range 7 2)     ())
+   (=>? (range 5 -5)    ())
+   (=>? (range -5 -5)   ())
+   (=>? (range -5 -15)  ())
    (=>? (range 3 7)     (3 4 5 6))
    (=>? (range -5 5)    (-5 -4 -3 -2 -1 0 1 2 3 4)))
   )

@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:33:31 tkych
+;;;; Last modified: 2013-10-15 19:00:05 tkych
 
 (define-practice
   :id       021
@@ -10,7 +10,6 @@
    Make function MY-REMOVE-DUPLICATE.
    It returns a modified copy of `list' from which any element that
    matches another element occurring in `list' has been removed.
-   Don't use buit-in function REMOVE-DUPLICATES.
 
  Examples:
 

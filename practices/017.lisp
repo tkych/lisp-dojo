@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 22:28:51 tkych
+;;;; Last modified: 2013-10-15 18:59:15 tkych
 
 (define-practice
   :id       017
@@ -16,9 +16,9 @@
    (insert-nth 'a  1 '(0 1 2 3)) => (0 A 1 2 3)
    (insert-nth 'a 10 '(0 1 2 3)) => (0 1 2 3)
    (insert-nth 'a -1 '(0 1 2 3)) => (0 1 2 3)
-   (insert-nth 'a  1 '())        => NIL
+   (insert-nth 'a  1 '())        => ()
    (insert-nth 'a  0 '())        => (A)
-   (insert-nth 'a -1 '())        => NIL
+   (insert-nth 'a -1 '())        => ()
 "
   :hint
   nil
@@ -42,7 +42,7 @@
    (=>? (insert-nth 'a  1 '(0 1 2 3)) (0 A 1 2 3))
    (=>? (insert-nth 'a 10 '(0 1 2 3)) (0 1 2 3))
    (=>? (insert-nth 'a -1 '(0 1 2 3)) (0 1 2 3))
-   (=>? (insert-nth 'a  1 '())        NIL)
+   (=>? (insert-nth 'a  1 '())        ())
    (=>? (insert-nth 'a  0 '())        (A))
-   (=>? (insert-nth 'a -1 '())        NIL))
+   (=>? (insert-nth 'a -1 '())        ()))
   )

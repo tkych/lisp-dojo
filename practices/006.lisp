@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:54:25 tkych
+;;;; Last modified: 2013-10-15 18:58:07 tkych
 
 (define-practice
   :id       006
@@ -9,7 +9,6 @@
 
    Make function MY-NTH.
    It returns `n'th element of `list'.
-   Don't use buit-in function NTH.
 
  Examples:
 

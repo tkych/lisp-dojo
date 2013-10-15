@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:33:50 tkych
+;;;; Last modified: 2013-10-15 19:00:21 tkych
 
 (define-practice
   :id       022
@@ -12,13 +12,13 @@
 
  Examples:
 
-   (zip '())               => NIL
+   (zip '())               => ()
    (zip '(a b c))          => ((A) (B) (C))
    (zip '(a b c) '(0 1 2)) => ((A 0) (B 1) (C 2))
    (zip '(a b c) '(0 1))   => ((A 0) (B 1))
    (zip '(a b)   '(0 1 2)) => ((A 0) (B 1))
 
-   (unzip '())                  => NIL
+   (unzip '())                  => ()
    (unzip '(A 0) '(B 1) '(C 2)) => ((A B C) (0 1 2))
    (unzip '(A 0) '(B 1) '(C))   => ((A B C))
 

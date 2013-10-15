@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:34:15 tkych
+;;;; Last modified: 2013-10-15 19:01:08 tkych
 
 (define-practice
   :id       024
@@ -12,6 +12,7 @@
 
  Examples:
 
+   (rotate  3 '())                => ()
    (rotate  3 '(a b c d e f g h)) => (D E F G H A B C)
    (rotate -2 '(a b c d e f g h)) => (G H A B C D E F)
 "

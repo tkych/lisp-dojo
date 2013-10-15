@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:55:00 tkych
+;;;; Last modified: 2013-10-15 18:57:38 tkych
 
 (define-practice
   :id       010
@@ -10,12 +10,11 @@
    Make function MY-BUTLAST.
    It returns a copy of `list' from which the last cons have been
    omitted.
-   Don't use buit-in function BUTLAST.
 
  Examples:
 
-   (my-butlast '())          => NIL
-   (my-butlast '(a))         => NIL
+   (my-butlast '())          => ()
+   (my-butlast '(a))         => ()
    (my-butlast '(a b c d))   => (A B C)
    (my-butlast '(a b (c d))) => (A B)
 "

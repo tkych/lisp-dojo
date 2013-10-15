@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:53:35 tkych
+;;;; Last modified: 2013-10-15 15:26:58 tkych
 
 (define-practice
   :id       001
@@ -13,7 +13,7 @@
 
  Examples:
 
-   (ensure-list nil)      => NIL
+   (ensure-list ())       => ()
    (ensure-list 'a)       => (A)
    (ensure-list '(a b c)) => (A B C)
 "
@@ -25,7 +25,7 @@
   :test-env
   nil
   :test
-  ((=>? (ensure-list nil)      NIL)
+  ((=>? (ensure-list ())       ())
    (=>? (ensure-list 'a)       (A))
    (=>? (ensure-list '(a b c)) (A B C)))
   )

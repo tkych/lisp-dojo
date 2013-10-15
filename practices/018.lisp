@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 22:37:41 tkych
+;;;; Last modified: 2013-10-15 18:59:28 tkych
 
 (define-practice
   :id       018
@@ -15,7 +15,7 @@
    (insert-every-nth 'a  1 '(0 1 2 3)) => (0 A 1 A 2 A 3 A)
    (insert-every-nth 'a  2 '(0 1 2 3)) => (0 1 A 2 3 A)
    (insert-every-nth 'a 10 '(0 1 2 3)) => (0 1 2 3)
-   (insert-every-nth 'a  3 '())        => NIL
+   (insert-every-nth 'a  3 '())        => ()
    (insert-every-nth 'a -1 '())        => ERROR!
    (insert-every-nth 'a -1 '(0 1 2))   => ERROR!
    (insert-every-nth 'a  0 '())        => ERROR!
@@ -43,7 +43,7 @@
   ((=>? (insert-every-nth 'a  1 '(0 1 2 3)) (0 A 1 A 2 A 3 A))
    (=>? (insert-every-nth 'a  2 '(0 1 2 3)) (0 1 A 2 3 A))
    (=>? (insert-every-nth 'a 10 '(0 1 2 3)) (0 1 2 3))
-   (=>? (insert-every-nth 'a  3 '())        NIL)
+   (=>? (insert-every-nth 'a  3 '())        ())
    (=>error? (insert-every-nth 'a -1 '()))
    (=>error? (insert-every-nth 'a -1 '(0 1 2)))
    (=>error? (insert-every-nth 'a  0 '()))

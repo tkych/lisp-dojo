@@ -1,6 +1,12 @@
+Version 0.0.34 (alpha)
+2013-10-15
+Fixed Typos: random-nth
+Added: prctices/028 ~ 034
+
 Version 0.0.27 (alpha)
 2013-10-13
 Added: prctices/021 ~ 027
+Renamed: solutions/ -> your-solutions/
 
 Version 0.0.20 (alpha)
 2013-10-12

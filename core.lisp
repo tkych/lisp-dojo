@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-13 21:58:54 tkych
+;;;; Last modified: 2013-10-15 18:54:49 tkych
 
 ;; lisp-dojo/core.lisp
 
@@ -9,7 +9,11 @@
 ;; TODO:
 ;; -----
 ;;  * once-only print promotion message
-;;  * solutions -> your-solutions
+;;  * .dojo -> your-solutions/.dojo
+
+;; BUG:
+;; ----
+;;  * ./lisp-dojo check <not-generated-yet-id> => error
 
 
 ;;====================================================================
@@ -108,7 +112,7 @@
 (defparameter *practices-directory* "practices")
 (defparameter *solutions-directory* "your-solutions")
 
-(defparameter *total-num-practices* 27)
+(defparameter *total-num-practices* 34)
 (defparameter *promotion-rate* 10)
 
 (defparameter *belts*
@@ -135,7 +139,7 @@
 (defvar *progress* 0)
 
 (defparameter *under-construction-message*
-  "Sorry, this documentation is under construction.")
+  "Sorry, documentation is under construction.")
 
 
 ;;--------------------------------------------------------------------

@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:54:33 tkych
+;;;; Last modified: 2013-10-15 18:58:02 tkych
 
 (define-practice
   :id       007
@@ -10,11 +10,10 @@
    Make function MY-REVERSE.
    It returns a copy of the `list', containing the same elements,
    but in reverse order.
-   Don't use buit-in function REVERSE.
 
  Examples:
 
-   (my-reverse '())          => NIL
+   (my-reverse '())          => ()
    (my-reverse '(a))         => (A)
    (my-reverse '(a b c))     => (C B A)
    (my-reverse '(a b (c d))) => ((C D) B A)

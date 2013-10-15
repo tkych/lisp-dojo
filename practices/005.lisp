@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:54:16 tkych
+;;;; Last modified: 2013-10-15 18:58:12 tkych
 
 (define-practice
   :id       005
@@ -9,7 +9,6 @@
 
    Make function MY-LENGTH.
    It returns the number of elements in the `list'.
-   Don't use buit-in function LENGTH.
 
  Examples:
 

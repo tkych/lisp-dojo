@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:53:58 tkych
+;;;; Last modified: 2013-10-15 18:58:20 tkych
 
 (define-practice
   :id       003
@@ -9,7 +9,6 @@
 
    Make function MY-LAST.
    It returns the last cons of a `list'. If `list' is (), returns ().
-   Don't use buit-in function LAST.
 
  Examples:
 

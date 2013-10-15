@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-12 10:57:14 tkych
+;;;; Last modified: 2013-10-15 18:59:44 tkych
 
 (define-practice
   :id       019
@@ -13,12 +13,12 @@
 
  Examples:
 
-   (range2 2 2)     => NIL
-   (range2 7 2)     => NIL
+   (range2 2 2)     => ()
+   (range2 7 2)     => ()
    (range2 0 3)     => (0 1 2)
    (range2 0 10 2)  => (0 2 4 6 8)
    (range2 -5 5)    => (-5 -4 -3 -2 -1 0 1 2 3 4)
-   (range2 5 -5)    => NIL
+   (range2 5 -5)    => ()
    (range2 5 -5 -1) => (5 4 3 2 1 0 -1 -2 -3 -4)
 "
   :hint
@@ -51,11 +51,11 @@
   :test-env
   nil
   :test
-  ((=>? (range2 2 2)     NIL)
-   (=>? (range2 7 2)     NIL)
-   (=>? (range2 5 -5)    NIL)
-   (=>? (range2 -5 -5)   NIL)
-   (=>? (range2 -5 -15)  NIL)
+  ((=>? (range2 2 2)     ())
+   (=>? (range2 7 2)     ())
+   (=>? (range2 5 -5)    ())
+   (=>? (range2 -5 -5)   ())
+   (=>? (range2 -5 -15)  ())
    (=>? (range2 3 7)     (3 4 5 6))
    (=>? (range2 0 10 2)  (0 2 4 6 8))
    (=>? (range2 -5 5)    (-5 -4 -3 -2 -1 0 1 2 3 4))
