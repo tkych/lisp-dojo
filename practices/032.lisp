@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-15 22:24:04 tkych
+;;;; Last modified: 2013-10-15 22:52:36 tkych
 
 (define-practice
   :id       032
@@ -27,7 +27,14 @@
      (cond ((endp prefix) t)
            ((endp lst)    nil)
            (t (and (funcall test (first prefix) (first lst))
-                   (prefixp (rest prefix) (rest lst))))))"
+                   (prefixp (rest prefix) (rest lst))))))
+
+ * (defun prefixp (prefix lst &key (test #'eql))
+     (let ((len-prefix (length prefix))
+           (len-lst (length lst)))
+       (and (<= len-prefix len-lst)
+            (every (lambda (x y) (funcall test x y))
+                   prefix lst))))"
   :reference "
  * http://www.geocities.jp/m_hiroi/clisp/index.html"
   :test-env
