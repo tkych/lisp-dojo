@@ -1,4 +1,4 @@
-;;;; Last modified: 2013-10-15 19:02:07 tkych
+;;;; Last modified: 2013-10-15 22:24:04 tkych
 
 (define-practice
   :id       032
@@ -18,6 +18,7 @@
    (prefixp '(0 1 2 3 4) '(1 2 3))   => NIL
    (prefixp '(0 1 2 3 4) '(2 3 4))   => NIL
    (prefixp '(0 1 2 3) '(0 1 2 3 4)) => T
+   (prefixp '(3 4 5) '(3 4))         => NIL
 "
   :hint
   nil
@@ -25,21 +26,8 @@
  * (defun prefixp (prefix lst &key (test #'eql))
      (cond ((endp prefix) t)
            ((endp lst)    nil)
-           (t (every (lambda (x y) (funcall test x y))
-                     prefix lst))))
-
- * (defun prefixp (prefix lst &key (test #'eql))
-     (cond ((endp prefix) t)
-           ((endp lst)    nil)
            (t (and (funcall test (first prefix) (first lst))
-                   (prefixp (rest prefix) (rest lst))))))
-
- * (defun prefixp (prefix lst &key (test #'eql))
-     (cond ((endp prefix) t)
-           ((endp lst)    nil)
-           (t (loop for s in prefix
-                    for x in lst
-                    always (funcall test s x)))))"
+                   (prefixp (rest prefix) (rest lst))))))"
   :reference "
  * http://www.geocities.jp/m_hiroi/clisp/index.html"
   :test-env
@@ -49,5 +37,7 @@
    (=>? (prefixp '(1 2 3) '())            NIL)
    (=>? (prefixp '(0 1 2 3 4) '(1 2 3))   NIL)
    (=>? (prefixp '(0 1 2 3 4) '(2 3 4))   NIL)
-   (=>? (prefixp '(0 1 2 3) '(0 1 2 3 4)) T))
+   (=>? (prefixp '(0 1 2 3) '(0 1 2 3 4)) T)
+   (=>? (prefixp '(3 4 5) '(3 4))         NIL))
   )
+
