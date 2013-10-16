@@ -39,7 +39,7 @@ If you want first to learn/review Common Lisp basics, the following excellent re
  - [Practical Common Lisp][pcl] by Peter Seibel
  - [Lisp-Koans][lisp-koans] by Google Inc.
 
-For more links about Common Lisp for newbie are found in [here][wellcome].
+For more links about Common Lisp for newcomers are found in [here][wellcome].
 
 
 [pg]: http://www.paulgraham.com/taste.html
