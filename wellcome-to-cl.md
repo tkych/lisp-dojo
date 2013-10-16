@@ -1,8 +1,8 @@
 Last modified: 2013-10-13 00:25:03 tkych
 
 
-Wellcome to the Common Lisp: Links for Newbie
-=============================================
+Wellcome to the Common Lisp: Links for Newcomers
+================================================
 
 Links are not perfect.
 
